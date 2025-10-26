@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ListReader {
     private AdjacencyList list;
-    public void ListReader(String filePath){
+    public ListReader(String filePath){
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
             String line;
             while ((line = reader.readLine()) != null) {
@@ -30,12 +30,16 @@ public class ListReader {
                         list.addNode(new Node(tokens[0], list.returnNode(tokens[1]), weight));
                     }
                     else{
-                        list.addNode(new Node())
+                        Node node = new Node(tokens[1]);
+                        list.addNode(new Node(tokens[0], node, weight));
                     }
 
                 }
 
             }
+        }
+        catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
         }
     }
 }

@@ -15,7 +15,7 @@ public class Node {
         addConnectedNode(node, weight);
 
     }
-    public Node(String name, )
+
     public void addConnectedNode(Node connected, Float weight){
         connectedList.add(connected);
         weightList.add(weight);
