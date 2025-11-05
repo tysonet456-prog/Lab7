@@ -1,19 +1,27 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class BFS {
-    ArrayList<String> connectedNodes = new ArrayList<>();
-    public ArrayList<String> connectedList(Node node) {
 
-        if (!connectedNodes.contains(node)){
-            connectedNodes.add(node.getName());
-            for(int i=0; i<node.getConnectedList().size(); i++){
-                if(!connectedNodes.contains(node.getConnectedList().get(i).getName())){
 
-                }
-            }
-
+    public ArrayList<String> connectedList(ArrayList<Node> graph) {
+        for(int j=0; j<graph.size(); j++){
+            graph.get(j).setVisited(false);
         }
-    }
-}
+        ArrayList<String> connectedNodes = new ArrayList<>();
+        LinkedList<Node> nodeQueue = new LinkedList<>();
+        Node source = graph.getFirst();
+        connectedNodes.add(source.getName());
+        nodeQueue.add(source);
+        while(!nodeQueue.isEmpty()){
+            Node curr = nodeQueue.poll();
+            if(!curr.isVisited()){
+            connectedNodes.add(curr.getName());
+            nodeQueue.addAll(curr.getConnectedList());
+        }
+        curr.setVisited(true);
+        }
+        return connectedNodes;
+    }}

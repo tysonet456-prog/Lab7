@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class ListReader {
-    private AdjacencyList list;
+    private AdjacencyList list = new AdjacencyList();
     public ListReader(String filePath){
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
             String line;
@@ -41,5 +41,11 @@ public class ListReader {
         catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
         }
+    }
+    public void displayNodes() {
+        list.displayList();
+    }
+    public void connected(){
+        list.getNodes().getFirst().getConnectedList().get(1).getName();
     }
 }

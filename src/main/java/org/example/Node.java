@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Node {
+    private boolean visited;
     private String name;
     private ArrayList<Node> connectedList = new ArrayList<>();
     private ArrayList<Float> weightList = new ArrayList<>();
@@ -22,6 +23,11 @@ public class Node {
     }
     public String getName(){
         return name;
+    }
+
+    public boolean isVisited(){return visited;}
+    public void setVisited(boolean value){
+        this.visited = value;
     }
 
     public ArrayList<Node> getConnectedList() {

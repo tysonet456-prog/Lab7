@@ -8,5 +8,7 @@ public class Main {
         System.out.print("Enter file path: ");
         String filePath = scanner.next();
         ListReader listReader = new ListReader(filePath);
+        listReader.displayNodes();
+
     }
 }
